@@ -1,0 +1,234 @@
+Name: Saket Barwal
+Gr Num: 141276
+RollNum: 10
+DIV: TY-Comp- C
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Assignment 1: 
+
+** Linux and Ruby basics
+- Describe the following Linux commands
+pwd,top,less,man,cat,man,chmod
+- Difference between : chmod a+x vs 755 vs +x
+- Describe REPL
+- Iterators in Ruby
+- Open Classes
+Write a ruby program to overload "+" operator.
+Input: 11,22
+Output: 1122
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Question 1: 
+	Describe the following Linux commands
+	pwd,top,less,man,cat,man,chmod
+
+_______________________________________________________________________________________________________________________________________________
+Answer:
+	PWD
+		NAME
+       			pwd - print name of current/working directory
+
+		SYNOPSIS
+       			pwd [OPTION]...
+
+		DESCRIPTION
+		       Print the full filename of the current working directory.
+
+		       -L, --logical
+			      use PWD from environment, even if it contains symlinks
+
+		       -P, --physical
+			      avoid all symlinks
+
+		       --help display this help and exit
+
+		       --version
+			      output version information and exit
+
+		       If no option is specified, -P is assumed.
+
+
+	TOP
+		DESCRIPTION
+		       The  top  program  provides  a dynamic real-time view of a running
+		       system.  It can display system summary information as  well  as  a
+		       list  of processes or threads currently being managed by the Linux
+		       kernel.  The types of system summary  information  shown  and  the
+		       types,  order  and size of information displayed for processes are
+		       all user configurable and that configuration can be  made  persis‐
+		       tent across restarts.
+
+		       The  program  provides a limited interactive interface for process
+		       manipulation as well as a much more extensive interface  for  per‐
+		       sonal  configuration   --  encompassing every aspect of its opera‐
+		       tion.  And while top is referred to throughout this document,  you
+		       are  free  to  name the program anything you wish.  That new name,
+		       possibly an alias, will then be reflected  on  top's  display  and
+		       used when reading and writing a configuration file.
+	LESS
+		DESCRIPTION:
+		       Less  is  a  program  similar  to  more (1), but it has many more features.  Less does not have to read the entire 			       input file before
+		       starting, so with large input files it starts up faster than text editors like vi (1).  Less uses termcap (or terminfo 				on some  systems),  so  it  can  run on a variety of terminals.  There is even limited support for hardcopy terminal
+			(On a hardcopy terminal,lines which should be printed at the top of the screen are prefixed with a caret.)
+		       Commands are based on both more and vi.  Commands may be preceded by a decimal number, called N in the descriptions 				below.  The number is used by some commands, as indicated.
+
+
+	MAN
+		DESCRIPTION: 
+			     Man is the system's manual viewer; it can be used to display manual pages, scroll up and down, search for 				     occurrences of specific text, and other useful functions.
+
+	CHMOD
+
+		chmod changes the permissions of each given file according to mode, where mode describes the permissions to modify. Mode can 			be specified with octal numbers or with letters.
+
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Question 2: Difference between : chmod a+x vs 755 vs +x
+
+_______________________________________________________________________________________________________________________
+
+Answer: chmod +x
+	chmod a+x modifies the argument's mode
+	while chmod 755 sets it.
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Question 3: Descibe REPL
+
+__________________________________________________________________________________________________________________
+Answer:
+	A Read–Eval–Print Loop (REPL), also known as an interactive toplevel or language shell, is a simple, interactive computer programming environment that takes single user inputs (i.e. single expressions), evaluates them, and returns the result to the user; a program written in a REPL environment is executed piecewise. The term is most usually used to refer to programming interfaces similar to the classic Lisp machine interactive environment. Common examples include command line shells and similar environments for programming languages, and is particularly characteristic of scripting languages
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Question 4: Iterators in Ruby
+_______________________________________________________________________________________________________________________________________________
+Answer:
+	terators are nothing but methods supported by collections. Objects that store a group of data members are called collections.
+	In Ruby, arrays and hashes can be termed collections.
+	Iterators return all the elements of a collection, one after the other. 
+
+	Ruby each Iterator:
+
+		The each iterator returns all the elements of an array or a hash.
+		Example:
+			ary = [1,2,3,4,5]
+			ary.each do |i|
+			   puts i
+		Output:
+			1
+			2
+			3
+			4
+			5
+
+	Ruby collect Iterator:
+
+		The collect iterator returns all the elements of a collection.
+
+		Example:
+			a = [1,2,3,4,5]
+			b = Array.new
+			b = a.collect{ |e| e }
+			puts b
+
+		OUTPUT:
+			1
+			2
+			3
+			4
+			5
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+Question 5: Open Classes
+_______________________________________________________________________________________________________________________________________________
+Answer:
+
+		In Ruby, classes are never closed: you can always add methods to an existing class.
+		This applies to the classes you write as well as the standard, built-in classes.
+		All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to 			whatever's there.
+
+		Example:
+
+		    require_relative 'p030motorcycle'  
+		    m = MotorCycle.new('Yamaha', 'red')  
+		    m.start_engine  
+		      
+		    class MotorCycle  
+		      def disp_attr  
+			puts 'Color of MotorCycle is ' + @color  
+			puts 'Make  of MotorCycle is ' + @make  
+		      end  
+		    end  
+		    m.disp_attr  
+		    m.start_engine  
+		    puts self.class  
+		    puts self  
+
+		Please note that self.class refers to Object and self refers to an object called main of class Object.
+
+		One more example is program - p031xdognext.rb
+
+		    require_relative 'p029dog'  
+		    # define class Dog  
+		    class Dog  
+		      def big_bark  
+			puts 'Woof! Woof!'  
+		      end  
+		    end  
+		    # make an object  
+		    d = Dog.new('Labrador', 'Benzy')  
+		    d.bark  
+		    d.big_bark  
+		    d.display  
+
+		Here's another example of adding a method to the String class.
+
+		We would like to add a write_size method to the String class. 
+		But first, we shall get a list of all methods in Ruby's standard String class that begins with wr:
+
+		    String.methods.grep /^wr/ # []  
+
+		We observe that the String class has no method starting with wr. Now let's write the program p032mystring.rb:
+
+		    class String  
+		      def write_size  
+			self.size  
+		      end  
+		    end  
+		    size_writer = "Tell me my size!"  
+		    puts size_writer.write_size  
+
+		If you're writing a new method that conceptually belongs in the original class, you can reopen the class and append your method 		to the class definition. You should only do this if your method is generally useful, and you're sure it won't conflict with a 			method defined by some library you include in the future. If your method isn't generally useful, or you don't want to take the 			risk of modifying a class after its initial creation, create a subclass of the original class. The subclass can override its 			parent's methods, or add new ones. This is safer because the original class, and any code that depended on it, is unaffected. 
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
+
+Question 6:Write a ruby program to overload "+" operator.
+Input: 11,22
+Output: 1122
+_______________________________________________________________________________________________________________________________________________
+
+	class OperatorReplace
+	 def initialize x
+	   @x = x
+	 end
+	 def +(y)
+	   @x.to_s + y.to_s
+	 end
+	end
+	a = OperatorReplace.new 11.to_s
+	puts(a+22)
+
+_______________________________________________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________________________________________
+
